@@ -1,3 +1,11 @@
+export const ISIN_IDs = [
+    'RU000A107RZ0',
+    'RU000A106938',
+    'RU000A102GU5',
+    'RU000A0ZZES2',
+    'RU000A1069P3',
+]
+
 const ISIN = [
     {
         id: 'RU000A107RZ0',
@@ -30,22 +38,6 @@ const ISIN = [
         description: 'description RU000A1069P3',
     },
 ]
-
-const getChartNode = (value = 100, year = 2020, mounth = 5, day = 1) => ({
-    Date: new Date(year, mounth, day).getTime(),
-    Open: Math.random() * 1000,
-    High: Math.random() * 1000,
-    Low: Math.random() * 1000,
-    Close: Math.random() * 1000,
-    Volume: Math.random() * 100000,
-    "Adj Close": Math.random() * 1000,
-})
-
-
-const getISINData = (idx) => ({
-    ...ISIN[idx],
-    ...getChartNode(),
-})
 
 export const list_1 = [
     { "Date": "2021-03-31", "Open": "232.910004", "High": "239.100006", "Low": "232.389999", "Close": "235.770004", "Adj Close": "233.865067", "Volume": "43623500" },
@@ -92,5 +84,23 @@ export const list_2 = [
     { "Date": "2021-05-25", "Open": "251.770004", "High": "252.750000", "Low": "250.820007", "Close": "251.720001", "Adj Close": "250.262756", "Volume": "17704300" },
     { "Date": "2021-05-26", "Open": "251.429993", "High": "252.940002", "Low": "250.750000", "Close": "251.490005", "Adj Close": "250.034088", "Volume": "17771600" }
 ]
+
+// const getChartNode = (value = 100, year = 2020, mounth = 5, day = 1) => ({
+//     Date: "2021-04-29",
+//     // Date: list_1[Math.floor(Math.random() * list_1.length)].Date,
+//     Open: Math.random() * 1000,
+//     High: Math.random() * 1000,
+//     Low: Math.random() * 1000,
+//     Close: Math.random() * 1000,
+//     Volume: Math.random() * 100000,
+//     "Adj Close": Math.random() * 1000,
+//     value
+// })
+
+const getISINData = (idx) => ({
+    ...ISIN[idx],
+    data: Math.random() > 0.5 ? list_1.slice(0) : list_2.slice(0),
+})
+
 
 export default [0, 1, 2, 3, 4].map(getISINData)

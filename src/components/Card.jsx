@@ -1,8 +1,12 @@
 import Chart from "./Chart";
-import DATA, { list_1, list_2 } from "../data";
+import DATA from "../data";
+import { useSelector } from "react-redux";
 
 function Card() {
-  const data = DATA[0];
+  const { id } = useSelector(state => state.isin);
+  const data = DATA.find(node => node.id === id);
+
+  if (!data) return null;
 
   return (
     <div className="card">
@@ -16,7 +20,7 @@ function Card() {
       <hr></hr>
       <div>
         <Chart
-          data={list_1.concat(list_2)}
+          data={data.data}
           fields={[
             { value: "Open", label: "Open" },
             { value: "Volume", label: "Volume" },
