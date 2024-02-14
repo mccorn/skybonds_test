@@ -85,18 +85,6 @@ export const list_2 = [
     { "Date": "2021-05-26", "Open": "251.429993", "High": "252.940002", "Low": "250.750000", "Close": "251.490005", "Adj Close": "250.034088", "Volume": "17771600" }
 ]
 
-// const getChartNode = (value = 100, year = 2020, mounth = 5, day = 1) => ({
-//     Date: "2021-04-29",
-//     // Date: list_1[Math.floor(Math.random() * list_1.length)].Date,
-//     Open: Math.random() * 1000,
-//     High: Math.random() * 1000,
-//     Low: Math.random() * 1000,
-//     Close: Math.random() * 1000,
-//     Volume: Math.random() * 100000,
-//     "Adj Close": Math.random() * 1000,
-//     value
-// })
-
 const getISINData = (idx) => ({
     ...ISIN[idx],
     data: Math.random() > 0.5 ? list_1.slice(0) : list_2.slice(0),
